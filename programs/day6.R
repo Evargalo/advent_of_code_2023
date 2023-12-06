@@ -15,12 +15,13 @@ calc_race <- function(time,press){
 }
 calc_race(7,4)
 
+res<-1
 for(i in 1:4){
   t<-times[i]
   dist <- map2_int(.x = t,.y = 1:(t-1),calc_race)
-  print(sum(dist>scores[i]))
+  res<-res*(sum(dist>scores[i]))
 }
-28*45*57*67
+res
 # 4811940
 
 # B ----
