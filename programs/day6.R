@@ -28,7 +28,7 @@ t<-paste0(times,collapse = "") %>% as.numeric
 s<-paste0(scores,collapse = "") %>% as.numeric
 
 # p= pressing time ; t= race duration ; s= current record
-# p² - t*p + s = 0
+# record equaled when p² - t*p + s = 0
 delta=t^2-4*s
 p1 = (t-sqrt(delta))/2
 p2 = (t+sqrt(delta))/2
