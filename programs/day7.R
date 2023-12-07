@@ -4,8 +4,6 @@ e <- read.csv2(paste0(repAoC,"data/day7.txt"),header = FALSE,sep = " ")
 
 # Part A----
 
-s <- e$V1[1]
-
 dec_hand <- function(s){
   compo<-tibble(card=s %>% str_split_1('')) %>% group_by(card) %>% count %>% arrange(-n) %>% pull(n)
 if(compo[1]==5) return("1:5k")
@@ -16,12 +14,9 @@ if(compo[1]==5) return("1:5k")
   if(compo[1]==2) return("6:2k")
   return("7:1k")
 }
-dec_hand(s)
 
 e %<>% separate_wider_position(V1,widths = c(c1=1,c2=1,c3=1,c4=1,c5=1),cols_remove = FALSE) 
-
 e %<>% rowwise %>% mutate(type=dec_hand(V1)) %>% ungroup 
-
 e %<>% 
   mutate(across(.cols = starts_with("c"),.fns=\(x)ordered(x,levels=c("A","K","Q","J","T",9:2))))
 
