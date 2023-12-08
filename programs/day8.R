@@ -45,6 +45,5 @@ ppcm(296955015671,times[6])
 
 reduce(times[1:3],ppcm) ; reduce(times[4:6],ppcm)
 ppcm(66686507,92635759)
-
 reduce(times[1:6],ppcm)
 #

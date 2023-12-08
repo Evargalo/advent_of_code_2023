@@ -41,8 +41,9 @@ pgcd<-function(a,b){
 # pgcd(-250,75)
 
 ppcm<-function(a,b){
-  (a*b%/%pgcd(b,a)) %>% abs
+  (a%/%pgcd(b,a)*b) %>% abs
 }
+
 # ppcm(-24,90)
 
 ###############
