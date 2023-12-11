@@ -6,9 +6,7 @@ l <- nrow(e)
 # A ----
 next_elem <- function(v){
   if(all(v==0)) return(0)
-  w <- v-lag(v)
-  w <- w[!is.na(w)]
-  last(v)+next_elem(w)
+  last(v) + next_elem(diff(v))
 }
 n_e <- function(i){next_elem(e[i,])}
 
@@ -19,9 +17,7 @@ map_int(1:l,n_e) %>% sum
 
 prev_elem <- function(v){
   if(all(v==0)) return(0)
-  w <- v-lag(v)
-  w <- w[!is.na(w)]
-  first(v) - prev_elem(w)
+  first(v) - prev_elem(diff(v))
 }
 p_e <- function(i){prev_elem(e[i,])}
 
