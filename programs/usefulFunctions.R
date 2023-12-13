@@ -50,6 +50,7 @@ ppcm<-function(a,b){
 # Strings----
 
 firstChar<-function(s) substr(s,1,1)
+lastChar<-function(s) substr(s,nchar(s),nchar(s))
 rmFirstChar<-function(s) {
   if(nchar(s)==0) return("")
   substr(s,2,nchar(s))
