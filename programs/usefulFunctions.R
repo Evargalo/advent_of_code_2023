@@ -8,7 +8,7 @@ options(digits = 22)
 
 
 # One character per column in a df
-fileToMatrix<-function(file) read_lines(file) %>% strsplit('') %>% reduce(rbind)
+fileToMatrix<-function(file) read_lines(file) %>% strsplit('') %>% reduce(rbind) %>% unname()
 
 df_from_vector_of_strings<-function(v){
   n<-nchar(v[1])
